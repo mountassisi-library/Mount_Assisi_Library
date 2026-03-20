@@ -29,7 +29,7 @@ ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
 # CSRF_TRUSTED_ORIGINS = ['https://librarymanagement.toystack.dev']
 CSRF_TRUSTED_ORIGINS = [
     'https://librarymanagement.toystack.dev',
-    'https://your-app-name.onrender.com',
+    'https://mount-assisi-library.onrender.com',
 ]
 # ALLOWED_HOSTS = ["*"]
 # Application definition
