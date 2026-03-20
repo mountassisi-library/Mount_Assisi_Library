@@ -21,5 +21,13 @@ COPY . /library/
 # Expose the port on which the Django app will run
 EXPOSE 8000
 
-# Run the Django development server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Create startup script
+RUN echo '#!/bin/bash\n\
+python manage.py migrate\n\
+python manage.py collectstatic --noinput\n\
+echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(username='"'"'admin'"'"').exists() or User.objects.create_superuser('"'"'admin'"'"', '"'"'admin@example.com'"'"', '"'"'admin123'"'"')" | python manage.py shell\n\
+gunicorn library_management_backend.wsgi --bind 0.0.0.0:8000 --workers 1 --threads 2 --timeout 120 --log-file -' > /start.sh
+
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]
