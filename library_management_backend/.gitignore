@@ -1,0 +1,5 @@
+/db.sqlite3
+/venv
+.vercel
+/staticfiles_build
+.DS_Store
