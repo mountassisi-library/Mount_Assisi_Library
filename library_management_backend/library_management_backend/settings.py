@@ -26,7 +26,11 @@ DEBUG = False
 # ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'now.sh', '.floxus.co', ".onrender.com", "4.213.40.183"]
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
 
-CSRF_TRUSTED_ORIGINS = ['https://librarymanagement.toystack.dev']
+# CSRF_TRUSTED_ORIGINS = ['https://librarymanagement.toystack.dev']
+CSRF_TRUSTED_ORIGINS = [
+    'https://librarymanagement.toystack.dev',
+    'https://your-app-name.onrender.com',
+]
 # ALLOWED_HOSTS = ["*"]
 # Application definition
 
