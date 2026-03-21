@@ -16,21 +16,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-# # #
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-^exqbk*o+yn)p-9!$*fzlh4a$ldm$$j14hx($6dakj7+l981k^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True - for testing
-DEBUG = False
+# DEBUG = True
+DEBUG = True
+
 # ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'now.sh', '.floxus.co', ".onrender.com", "4.213.40.183"]
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
 
-# CSRF_TRUSTED_ORIGINS = ['https://librarymanagement.toystack.dev']
-CSRF_TRUSTED_ORIGINS = [
-    'https://librarymanagement.toystack.dev',
-    'https://mount-assisi-library.onrender.com',
-]
+CSRF_TRUSTED_ORIGINS = ['https://librarymanagement.toystack.dev']
 # ALLOWED_HOSTS = ["*"]
 # Application definition
 
@@ -156,7 +153,7 @@ STATIC_URL = 'static/'
 AUTH_USER_MODEL = 'library.User'
 
 if not DEBUG:
-    # Tell Django to copy static assets into a path called staticfiles (this is specific to Render)
+    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
     # and renames the files with unique names for each version to support long-term caching
