@@ -18,6 +18,9 @@ RUN pip install -r requirements.txt
 # Copy the current directory contents into the container at /app
 COPY . /library/
 
+# ADD THIS LINE:
+RUN mkdir -p /library/staticfiles
+
 # Expose the port on which the Django app will run
 EXPOSE 8000
 
