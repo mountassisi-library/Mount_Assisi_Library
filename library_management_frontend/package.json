@@ -1,5 +1,5 @@
 {
-  "name": "mount-assisi-library",
+  "name": "mount_assisi_library",
   "productName": "Mount Assisi Library",
   "version": "1.0.0",
   "author": "Jyoti Jha",
@@ -29,6 +29,24 @@
         {
           "name": "@electron-forge/maker-zip",
           "platforms": ["win32"]
+        }
+      ],
+      "plugins": [
+        {
+          "name": "@electron-forge/plugin-webpack",
+          "config": {
+            "mainConfig": "./webpack.main.config.js",
+            "renderer": {
+              "config": "./webpack.renderer.config.js",
+              "entryPoints": [
+                {
+                  "html": "./src/index.html",
+                  "js": "./src/renderer.js",
+                  "name": "main_window"
+                }
+              ]
+            }
+          }
         }
       ]
     }
