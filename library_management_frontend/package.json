@@ -1,6 +1,6 @@
 {
-  "name": "library_management_ui",
-  "productName": "library_management_ui",
+  "name": "mount-assisi-library",
+  "productName": "Mount Assisi Library",
   "version": "1.0.0",
   "author": "Jyoti Jha",
   "description": "Libraray Management System",
@@ -11,6 +11,27 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asar": true,
+        "icon": "assets/icon"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "mount_assisi_library",
+            "setupIcon": "assets/icon.ico"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": ["win32"]
+        }
+      ]
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.24.5",
